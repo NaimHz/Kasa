@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
-}
+@import 'var.scss';
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Home {
+  width: 90%;
+  position: relative;
+  margin: auto;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.banner {
+  margin: auto;
+  height: 223px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-radius: 25px;
+  overflow: hidden;
+}
+.banner:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-image: url(../assets/BannerBackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+  filter: brightness(0.75);
+  height: 223px;
+  border-radius: 25px;
+}
+.banner__title {
+  position: relative;
   color: white;
+  font-weight: 500;
+  font-size: 48px;
+}
+.main {
+  margin-top: 30px;
+  background-color: #f6f6f6;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main__rooms {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 30px;
+  padding: 0;
+}
+.main__rooms--room {
+  flex: 0 0 29.3%;
+  margin: 20px 2%;
+  height: 340px;
+  position: relative;
+  box-sizing: border-box;
+  margin-bottom: 40px;
 }
 
-.App-link {
-  color: #61dafb;
+.room--title {
+  display: inline;
+  position: absolute;
+  width: 120px;
+  height: auto;
+  bottom: 0;
+  left: 10px;
+  color: white;
+  z-index: 2;
+  font-size: 18px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.room--cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 10px;
+  object-fit: cover;
+  filter: brightness(0.9);
 }
