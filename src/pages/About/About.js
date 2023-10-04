@@ -10,7 +10,7 @@ function About() {
   const [open4, setOpen4] = useState(false)
   return (
     <div className="About">
-      <div className="banner"></div>
+      <div className="aboutbanner"></div>
       <div className="aboutelements">
         <div className="aboutelement">
           <p>Fiabilité</p>
@@ -27,14 +27,7 @@ function About() {
             />
           </button>
         </div>
-        <Collapse
-          isOpened={open}
-          style={{
-            height: open ? 'auto' : 'auto',
-            animation: '3s ease 1s 2',
-            overflow: 'hidden',
-          }}
-        >
+        <Collapse isOpened={open} theme={{ collapse: 'foo', content: 'bar' }}>
           <p className={`aboutelement__text ${open ? 'visible' : ``}`}>
             Les annonces postées sur Kasa garantissent une fiabilité totale. Les
             photos sont conformes aux logements, et toutes les informations sont
@@ -56,10 +49,12 @@ function About() {
             />
           </button>
         </div>
-        <Collapse isOpened={open2}>
-          La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
-          comportement discriminatoire ou de perturbation du voisinage
-          entraînera une exclusion de notre plateforme.
+        <Collapse isOpened={open2} theme={{ collapse: 'foo', content: 'bar' }}>
+          <p className={`aboutelement__text ${open2 ? 'visible' : ``}`}>
+            La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
+            comportement discriminatoire ou de perturbation du voisinage
+            entraînera une exclusion de notre plateforme.
+          </p>
         </Collapse>
       </div>
       <div className="aboutelements">
@@ -76,10 +71,12 @@ function About() {
             />
           </button>
         </div>
-        <Collapse isOpened={open3}>
-          La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
-          comportement discriminatoire ou de perturbation du voisinage
-          entraînera une exclusion de notre plateforme.
+        <Collapse isOpened={open3} theme={{ collapse: 'foo', content: 'bar' }}>
+          <p className={`aboutelement__text ${open3 ? 'visible' : ``}`}>
+            La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
+            comportement discriminatoire ou de perturbation du voisinage
+            entraînera une exclusion de notre plateforme.
+          </p>
         </Collapse>
       </div>
       <div className="aboutelements">
@@ -96,13 +93,15 @@ function About() {
             />
           </button>
         </div>
-        <Collapse isOpened={open4}>
-          La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que
-          pour les voyageurs, chaque logement correspond aux critères de
-          sécurité établis par nos services. En laissant une note aussi bien à
-          l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les
-          standards sont bien respectés. Nous organisons également des ateliers
-          sur la sécurité domestique pour nos hôtes.
+        <Collapse isOpened={open4} theme={{ collapse: 'foo', content: 'bar' }}>
+          <p className={`aboutelement__text ${open4 ? 'visible' : ``}`}>
+            La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que
+            pour les voyageurs, chaque logement correspond aux critères de
+            sécurité établis par nos services. En laissant une note aussi bien à
+            l'hôte qu'au locataire, cela permet à nos équipes de vérifier que
+            les standards sont bien respectés. Nous organisons également des
+            ateliers sur la sécurité domestique pour nos hôtes.
+          </p>
         </Collapse>
       </div>
     </div>
