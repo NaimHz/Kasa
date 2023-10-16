@@ -15,22 +15,23 @@
   justify-content: center;
   border-radius: 25px;
   overflow: hidden;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: url(../assets/BannerBackground2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: cover;
+    height: 223px;
+    border-radius: 25px;
+  }
 }
-.aboutbanner:before {
-  content: '';
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-image: url(../assets/BannerBackground2.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  object-fit: cover;
-  height: 223px;
-  border-radius: 25px;
-}
+
 .aboutelements {
   position: relative;
   display: flex;
@@ -38,27 +39,34 @@
   align-items: center;
   flex-direction: column;
   max-width: 100%;
-}
-.aboutelement {
-  display: flex;
-  justify-content: space-between;
-  width: 80%;
-  align-items: center;
-  margin: 30px auto 0 auto;
-  background-color: $primary-color;
-  color: white;
-  padding: 0 20px;
-  font-size: 22px;
-  border-radius: 5px;
-  position: relative;
-}
-.aboutelement__button {
-  background-color: inherit;
-  border: 0;
-  transition: transform 1s ease;
-}
-.aboutelement__button:hover {
-  cursor: pointer;
+
+  &__aboutelement {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+    align-items: center;
+    margin: 30px auto 0 auto;
+    background-color: $primary-color;
+    color: white;
+    padding: 10px 20px;
+    font-size: 22px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+
+    & p {
+      margin: 0;
+    }
+    &--button {
+      background-color: inherit;
+      border: 0;
+      transition: transform 1s ease;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
 .activebutton {
   transform: rotate(-180deg);
@@ -67,36 +75,32 @@
 //* Collapse
 
 .foo {
-  height: 0px;
-  overflow: hidden;
-  width: 100%;
-  transition: height 1s ease-in-out;
-  padding: 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-  overflow: hidden;
-}
-
-.bar {
-  height: 100px;
+  max-height: 0px;
   background-color: #f6f6f6;
   width: 80%;
   padding: 0 20px;
-  position: relative;
   overflow: hidden;
+  transition: max-height 0.7s ease-in-out;
+  border-radius: 0 0 5px 5px;
+}
+
+.bar {
+  position: relative;
+  background-color: #f6f6f6;
+  max-height: 300px;
+  width: 80%;
+  padding: 0 20px;
+  overflow: hidden;
+  transition: max-height 0.7s ease-in-out;
+  border-radius: 0 0 5px 5px;
 }
 .aboutelement__text {
-  position: absolute;
-  top: -100px;
-  transition:
-    top 1s ease-in-out,
-    bottom 1s ease-in-out;
   color: $primary-color;
-  height: 0;
+  position: relative;
+  transform: translateY(-150px);
+  transition: transform 0.5s ease-in-out;
 }
 .visible {
-  top: 0;
-  display: block;
+  transform: translateY(0);
 }

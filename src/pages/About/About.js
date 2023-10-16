@@ -1,100 +1,57 @@
 import '../../style/About.scss'
 import { useState } from 'react'
-import { Collapse } from 'react-collapse'
-import button from '../../assets/CollapseButton.svg'
+import CollapseComponent from '../../components/Collapse/CollapseComponent'
 
 function About() {
-  const [open, setOpen] = useState(false)
-  const [open2, setOpen2] = useState(false)
-  const [open3, setOpen3] = useState(false)
-  const [open4, setOpen4] = useState(false)
+  const [open, setOpen] = useState([false, false, false])
   return (
     <div className="About">
       <div className="aboutbanner"></div>
-      <div className="aboutelements">
-        <div className="aboutelement">
-          <p>Fiabilité</p>
-          <button
-            className={`aboutelement__button ${open ? 'activebutton' : ``}`}
-            onClick={() => {
-              setOpen(!open)
-            }}
-          >
-            <img
-              className="button--logo"
-              src={button}
-              alt="button de colapse"
-            />
-          </button>
-        </div>
-        <Collapse isOpened={open} theme={{ collapse: 'foo', content: 'bar' }}>
-          <p className={`aboutelement__text ${open ? 'visible' : ``}`}>
+      <CollapseComponent
+        id={0}
+        open={open}
+        setOpen={setOpen}
+        text={
+          <p>
             Les annonces postées sur Kasa garantissent une fiabilité totale. Les
             photos sont conformes aux logements, et toutes les informations sont
             régulièrement vérifiées par nos équipes.
           </p>
-        </Collapse>
-      </div>
-      <div className="aboutelements">
-        <div className="aboutelement">
-          <p>Respect</p>
-          <button
-            className="aboutelement__button"
-            onClick={() => setOpen2(!open2)}
-          >
-            <img
-              className="button--logo"
-              src={button}
-              alt="button de colapse"
-            />
-          </button>
-        </div>
-        <Collapse isOpened={open2} theme={{ collapse: 'foo', content: 'bar' }}>
-          <p className={`aboutelement__text ${open2 ? 'visible' : ``}`}>
+        }
+        title={'Fiabilité'}
+      />
+      <CollapseComponent
+        id={1}
+        open={open}
+        setOpen={setOpen}
+        text={
+          <p>
             La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
             comportement discriminatoire ou de perturbation du voisinage
             entraînera une exclusion de notre plateforme.
           </p>
-        </Collapse>
-      </div>
-      <div className="aboutelements">
-        <div className="aboutelement">
-          <p>Service</p>
-          <button
-            className="aboutelement__button"
-            onClick={() => setOpen3(!open3)}
-          >
-            <img
-              className="button--logo"
-              src={button}
-              alt="button de colapse"
-            />
-          </button>
-        </div>
-        <Collapse isOpened={open3} theme={{ collapse: 'foo', content: 'bar' }}>
-          <p className={`aboutelement__text ${open3 ? 'visible' : ``}`}>
+        }
+        title={'Respect'}
+      />
+      <CollapseComponent
+        id={2}
+        open={open}
+        setOpen={setOpen}
+        text={
+          <p>
             La bienveillance fait partie des valeurs fondatrices de Kasa. Tout
             comportement discriminatoire ou de perturbation du voisinage
             entraînera une exclusion de notre plateforme.
           </p>
-        </Collapse>
-      </div>
-      <div className="aboutelements">
-        <div className="aboutelement">
-          <p>Sécurité</p>
-          <button
-            className="aboutelement__button"
-            onClick={() => setOpen4(!open4)}
-          >
-            <img
-              className="button--logo"
-              src={button}
-              alt="button de colapse"
-            />
-          </button>
-        </div>
-        <Collapse isOpened={open4} theme={{ collapse: 'foo', content: 'bar' }}>
-          <p className={`aboutelement__text ${open4 ? 'visible' : ``}`}>
+        }
+        title={'Service'}
+      />
+      <CollapseComponent
+        id={3}
+        open={open}
+        setOpen={setOpen}
+        text={
+          <p>
             La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que
             pour les voyageurs, chaque logement correspond aux critères de
             sécurité établis par nos services. En laissant une note aussi bien à
@@ -102,8 +59,9 @@ function About() {
             les standards sont bien respectés. Nous organisons également des
             ateliers sur la sécurité domestique pour nos hôtes.
           </p>
-        </Collapse>
-      </div>
+        }
+        title={'Sécurité'}
+      />
     </div>
   )
 }

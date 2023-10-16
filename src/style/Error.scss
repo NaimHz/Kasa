@@ -6,16 +6,16 @@
   justify-content: center;
   align-items: center;
   color: $primary-color;
-}
-.error__title {
-  font-size: 288px;
-  margin: 139px auto;
-}
-.error__new {
-  font-size: 36px;
-}
-.error__home {
-  font-size: 18px;
-  text-decoration: underline;
-  color: $primary-color;
+  &__title {
+    font-size: 288px;
+    margin: 139px auto;
+  }
+  &__new {
+    font-size: 36px;
+  }
+  &__home {
+    font-size: 18px;
+    text-decoration: underline;
+    color: $primary-color;
+  }
 }

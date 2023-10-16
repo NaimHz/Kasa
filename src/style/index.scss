@@ -2,8 +2,11 @@
 
 body {
   margin: 0;
-  width: 100%;
+  width: 100vw;
   margin: auto;
-  font-family: Montserrat;
+  font-family: 'Montserrat';
   font-weight: 500;
+}
+* {
+  box-sizing: border-box;
 }
