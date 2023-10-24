@@ -4,8 +4,10 @@
   width: 90%;
   position: relative;
   margin: auto;
-
   background-color: white;
+  @media screen and (max-width: 768px) {
+    margin-bottom: 20px;
+  }
 }
 .aboutbanner {
   margin: auto;
@@ -29,6 +31,13 @@
     object-fit: cover;
     height: 223px;
     border-radius: 25px;
+  }
+  @media screen and (max-width: 768px) {
+    height: 111px;
+    &:before {
+      height: 111px;
+      border-radius: 10px;
+    }
   }
 }
 
@@ -64,6 +73,19 @@
       transition: transform 1s ease;
       &:hover {
         cursor: pointer;
+      }
+    }
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+    margin: 20px auto;
+
+    &__aboutelement {
+      font-size: 13px;
+      padding: 5px 8px;
+      margin: 0 auto;
+      &--button img {
+        width: 15px;
       }
     }
   }

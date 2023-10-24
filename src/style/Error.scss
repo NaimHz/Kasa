@@ -18,4 +18,19 @@
     text-decoration: underline;
     color: $primary-color;
   }
+  @media screen and (max-width: 768px) {
+    &__title {
+      margin: 113px auto;
+      font-size: 96px;
+    }
+    &__new {
+      margin: 0 0 113px 0;
+      font-size: 18px;
+      text-align: center;
+    }
+    &__home {
+      font-size: 14px;
+      margin: 0 0 113px 0;
+    }
+  }
 }
