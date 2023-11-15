@@ -13,12 +13,17 @@ function Slideshow({ pictures }) {
   }
   return (
     <div className="carousel">
-      <button className="carousel__button next" onClick={goToNextSlide}>
-        <img src={button} alt="bouton de carousel" />
-      </button>
-      <button className="carousel__button prev" onClick={goToPrevSlide}>
-        <img src={button} alt="bouton de carousel" />
-      </button>
+      {pictures.length > 1 ? (
+        <div>
+          <button className="carousel__button next" onClick={goToNextSlide}>
+            <img src={button} alt="bouton de carousel" />
+          </button>
+          <button className="carousel__button prev" onClick={goToPrevSlide}>
+            <img src={button} alt="bouton de carousel" />
+          </button>{' '}
+        </div>
+      ) : null}
+
       <img
         className="carousel__picture"
         src={pictures[currentIndex]}

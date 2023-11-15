@@ -2,15 +2,14 @@ import { useParams } from 'react-router-dom'
 import { useData } from '../../utils/hooks'
 import '../../style/Room.scss'
 import Slideshow from '../../components/Carousel/Slideshow'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
 import CollapseComponent from '../../components/Collapse/CollapseComponent'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import StarComponent from '../../components/StarComponent/StarComponent'
+import TagComponent from '../../components/TagComponent/TagComponent'
 
 function Room() {
   const navigate = useNavigate()
-  const range = [1, 2, 3, 4, 5]
   const param = useParams()
   const [openInfo, setOpenInfo] = useState([false, false])
   let data = useData()
@@ -27,9 +26,7 @@ function Room() {
           <h1 className="roominfo1__title">{roomItem.title}</h1>
           <p className="roominfo1__location">{roomItem.location}</p>
           <ul className="roominfo1__tags">
-            {roomItem.tags.map((tag, index) => (
-              <li key={index}>{tag}</li>
-            ))}
+            <TagComponent tags={roomItem.tags} />
           </ul>
         </div>
         <div className="roominfo2">
@@ -40,18 +37,7 @@ function Room() {
             </div>
           </div>
           <div className="roominfo2__rating">
-            {' '}
-            {range.map((rangeElem) =>
-              roomItem.rating >= rangeElem ? (
-                <span key={rangeElem.toString()}>
-                  <FontAwesomeIcon icon={faStar} className="yestar" />
-                </span>
-              ) : (
-                <span key={rangeElem.toString()}>
-                  <FontAwesomeIcon icon={faStar} className="nostar" />
-                </span>
-              ),
-            )}
+            <StarComponent roomRating={roomItem.rating} />
           </div>
         </div>
       </main>
@@ -62,17 +48,19 @@ function Room() {
           setOpen={setOpenInfo}
           text={<p>{roomItem.description}</p>}
           title="Description"
-          className="slideshow"
         />
         <CollapseComponent
           id={1}
           open={openInfo}
           setOpen={setOpenInfo}
-          text={roomItem.equipments.map((equip, index) => (
-            <p key={index}>{equip}</p>
-          ))}
+          text={
+            <ul>
+              {roomItem.equipments.map((equip, index) => (
+                <li key={index}>{equip}</li>
+              ))}
+            </ul>
+          }
           title="Équipements"
-          className="slideshow"
         />
       </div>
     </div>
