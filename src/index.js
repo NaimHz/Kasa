@@ -15,9 +15,9 @@ root.render(
     <Router>
       <Navbar />
       <Routes>
-        <Route path="/Projet-4/" element={<Home />} />
-        <Route path="/Projet-4/About" element={<About />} />
-        <Route path="/Projet-4/room/:id" element={<Room />} />
+        <Route path="/Kasa/" element={<Home />} />
+        <Route path="/Kasa/About" element={<About />} />
+        <Route path="/Kasa/room/:id" element={<Room />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
